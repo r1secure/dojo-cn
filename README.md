@@ -1,9 +1,9 @@
 # DOJO CONFIANCE NUM
-# liste des commandes
+## liste des commandes
 
-openssl version
+> openssl version
 
-openssl toto
+> openssl toto
 
 # chiffrement symétrique AES-256-CBC
 echo 'ceci est un message secret' > data.txt
@@ -54,7 +54,9 @@ openssl102 pkeyutl -verify -pubin -inkey mykey.pub.pem -in data.sha256 -sigfile 
 openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -out CA-key.pem
 openssl req -new -key CA-key.pem -config openssl.cnf -out CA-req.pem
 openssl x509 -req -in CA-req.pem -signkey CA-key.pem -extensions ca_ext -days 3652 -out CA-cert.pem
+
 openssl x509 -in CA-cert.pem -noout -text
+	
 openssl pkcs12 -export -out CA-cert.p12 -inkey CA-key.pem -in CA-cert.pem
 
 # certificats utilisateurs
