@@ -46,14 +46,9 @@
 ## Performances
 > openssl speed rsa aes-256-cbc
 
-## une signature pas à pas
+## une signature 
 > openssl sha256 -binary data.txt > data.sha256
 
-> cat data.sha256 | openssl pkeyutl -sign -inkey mykey.pem -out data.sha256.sig
-
-> diff data.sha256 data.sha256.valid
-
-## signature avec pkeyutl
 > openssl pkeyutl -sign -in data.sha256 -inkey mykey.pem -out data.sha256.sig
 
 > openssl pkeyutl -verify -pubin -inkey mykey.pub.pem -in data.sha256 -sigfile data.sha256.sig
